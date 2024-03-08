@@ -7,6 +7,8 @@ using Entitiy.AI2IS;
 using ApplicationCore.Serivce;
 using ApplicationCore.IService;
 using Infrastructure.Repository;
+using ProgramProcess.IService;
+using ProgramProcess.Serivce;
 
 namespace ProgramProcess;
 
@@ -43,7 +45,10 @@ public class Startup
 
         services.AddScoped<IExportMobileAppNotiTask, ExportMobileAppNotiTask>();
 
+        services.AddScoped<IExportMobileAppNotiValidator, ExportMobileAppNotiValidator>();
+
         services.AddScoped<IExportMobileAppNotiRepository, ExportMobileAppNotiRepository>();
+
     }
 
     public IConfiguration BuildConfiguration()

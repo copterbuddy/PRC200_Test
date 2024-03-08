@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ApplicationCore.IService;
+namespace ProgramProcess.IService;
 
 public interface IExportMobileAppNotiTask
 {
