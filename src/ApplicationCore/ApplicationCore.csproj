@@ -24,4 +24,13 @@
     <PackageReference Include="System.ServiceModel.Security" Version="6.0.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Infrastructure\Infrastructure.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="IService\" />
+    <Folder Include="Serivce\" />
+  </ItemGroup>
+
 </Project>

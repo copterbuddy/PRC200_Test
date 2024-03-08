@@ -21,10 +21,11 @@ public static class RijndaelEncryption
     [SqlFunction()]
     public static string Decrypt(string cipher, string password)
     {
-        byte[] cipherBytes = Convert.FromBase64String(cipher);
-        SymmetricAlgorithm algo = InitializeAlgorithn(password);
-        byte[] plain = EncryptDecryptBinary(cipherBytes, password, algo.CreateDecryptor());
-        return Encoding.Unicode.GetString(plain);
+        //byte[] cipherBytes = Convert.FromBase64String(cipher);
+        //SymmetricAlgorithm algo = InitializeAlgorithn(password);
+        //byte[] plain = EncryptDecryptBinary(cipherBytes, password, algo.CreateDecryptor());
+        //return Encoding.Unicode.GetString(plain);
+        return "ABC";
     }
 
     private static byte[] EncryptDecryptBinary(byte[] text, string password, ICryptoTransform transform)

@@ -8,4 +8,5 @@ namespace ApplicationCore.IService;
 
 public interface IExportMobileAppNotiTask
 {
+    Task RunAsync();
 }

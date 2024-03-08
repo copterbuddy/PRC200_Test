@@ -8,6 +8,7 @@ using ApplicationCore.Constants;
 using Entitiy.AI2IS;
 using ApplicationCore.Serivce;
 using Infrastructure;
+using ApplicationCore.IService;
 
 namespace ProgramProcess;
 
@@ -24,7 +25,9 @@ public class Startup
 
     public async Task StartAsync()
     {
-        return;
+        var serviceProvider = services.BuildServiceProvider();
+        var service = serviceProvider.GetService<IExportMobileAppNotiTask>();
+        await service!.RunAsync();
     }
 
     public void ConfigureServices()
@@ -40,7 +43,7 @@ public class Startup
 
         services.AddSingleton(option => new AI2ISOptionBuilder(connectionString, 30));
 
-        services.AddScoped<ExportMobileAppNotiTask>();
+        services.AddScoped<IExportMobileAppNotiTask, ExportMobileAppNotiTask>();
 
         services.AddScoped<IExportMobileAppNotiRepository, ExportMobileAppNotiRepository>();
     }
@@ -53,13 +56,10 @@ public class Startup
 
         string environmentName = builder?.Build()?.GetValue<string>("Environments") ?? string.Empty;
 
-        if (string.IsNullOrEmpty(environmentName))
-        {
-            builder = new ConfigurationBuilder()
-            .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
-            .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
-            .AddJsonFile($"appsettings.{environmentName}.json", optional: true);
-        }
+        builder = new ConfigurationBuilder()
+        .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
+        .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
+        .AddJsonFile($"appsettings.{environmentName}.json", optional: true, reloadOnChange: true);
 
         return builder!.Build();
     }
