@@ -1,8 +1,8 @@
-﻿using ProgramProcess.Infrastructure;
+﻿using ProgramProcess.Extensions;
 
 namespace ProgramProcess;
 
-internal static class Program
+public static class Program
 {
     private static Mutex mutex = new(true, "export-estatement-app-noti");
     [STAThread]

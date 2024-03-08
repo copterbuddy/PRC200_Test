@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProgramProcess.Infrastructure;
+namespace ProgramProcess.Extensions;
 
 public static class LogHelper
 {

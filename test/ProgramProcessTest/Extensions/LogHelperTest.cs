@@ -1,12 +1,7 @@
-﻿using ProgramProcess.Infrastructure;
-using ProgramProcessTest.Infrastructure.Model;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ProgramProcess.Extensions;
+using ProgramProcessTest.Extensions.Model;
 
-namespace ProgramProcessTest.Infrastructure;
+namespace ProgramProcessTest.Extensions;
 
 public class LogHelperTest
 {
@@ -55,13 +50,12 @@ public class LogHelperTest
 
 
         // Act
-        using (var consoleOutput = new ConsoleOutput())
-        {
-            LogHelper.LogError(logDetails);
+        var consoleOutput = new ConsoleOutput();
+        LogHelper.LogError(logDetails);
 
-            // Assert
-            Assert.Contains(expected1, consoleOutput.GetOutput());
-            Assert.Contains(expected2, consoleOutput.GetOutput());
-        }
+        // Assert
+        Assert.Contains(expected1, consoleOutput.GetOutput());
+        Assert.Contains(expected2, consoleOutput.GetOutput());
+        
     }
 }
