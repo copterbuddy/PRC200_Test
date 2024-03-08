@@ -1,5 +1,6 @@
 ﻿using ApplicationCore.Constants.StringValues;
 using ApplicationCore.Extensions;
+using ApplicationCore.ISerivce;
 using ApplicationCore.IService;
 using Infrastructure.Repository;
 using ProgramProcess.Configurations;
@@ -11,14 +12,14 @@ public class ExportMobileAppNotiTask : IExportMobileAppNotiTask
 {
     public const string TaskName = "ExportMobileAppNoti";
 
-    private readonly IExportMobileAppNotiRepository _exportMobileAppNotiRepository;
     private readonly ConfigurationContext _config;
     private readonly IExportMobileAppNotiValidator _taskValidator;
+    private readonly ICsvService _csvService;
 
-    public ExportMobileAppNotiTask(IExportMobileAppNotiRepository exportMobileAppNotiRepository, IExportMobileAppNotiValidator taskValidator, ConfigurationContext config)
+    public ExportMobileAppNotiTask(IExportMobileAppNotiValidator taskValidator, ICsvService csvService, ConfigurationContext config)
     {
-        _exportMobileAppNotiRepository = exportMobileAppNotiRepository;
         _taskValidator = taskValidator;
+        _csvService = csvService;
         _config = config;
     }
     public async Task RunAsync()
@@ -34,5 +35,6 @@ public class ExportMobileAppNotiTask : IExportMobileAppNotiTask
             return;
         }
 
+        await _csvService.GenerateCsv();
     }
 }

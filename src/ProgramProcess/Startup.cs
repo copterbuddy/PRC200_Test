@@ -9,6 +9,7 @@ using ApplicationCore.IService;
 using Infrastructure.Repository;
 using ProgramProcess.IService;
 using ProgramProcess.Serivce;
+using ApplicationCore.ISerivce;
 
 namespace ProgramProcess;
 
@@ -48,6 +49,8 @@ public class Startup
         services.AddScoped<IExportMobileAppNotiValidator, ExportMobileAppNotiValidator>();
 
         services.AddScoped<IExportMobileAppNotiRepository, ExportMobileAppNotiRepository>();
+
+        services.AddScoped<ICsvService, CsvService>();
 
     }
 
