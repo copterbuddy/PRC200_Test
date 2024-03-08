@@ -1,14 +1,12 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using ProgramProcess.Extensions;
-using Microsoft.Extensions.Options;
 using ProgramProcess.Configurations;
 using ApplicationCore.Utilities;
 using ApplicationCore.Constants;
 using Entitiy.AI2IS;
 using ApplicationCore.Serivce;
-using Infrastructure;
 using ApplicationCore.IService;
+using Infrastructure.Repository;
 
 namespace ProgramProcess;
 

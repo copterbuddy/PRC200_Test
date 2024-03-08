@@ -1,4 +1,4 @@
-﻿using ProgramProcess.Extensions;
+﻿using ApplicationCore.Extensions;
 
 namespace ProgramProcess;
 

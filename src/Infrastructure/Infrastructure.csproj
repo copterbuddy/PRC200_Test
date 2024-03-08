@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Entitiy.AI2IS\Entitiy.AI2IS.csproj" />
+  </ItemGroup>
+
 </Project>

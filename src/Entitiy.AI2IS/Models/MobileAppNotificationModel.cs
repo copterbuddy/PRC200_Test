@@ -4,8 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProgramProcess.Extensions;
-public class AppSettingsModel
+namespace Entitiy.AI2IS.Models;
+
+public class MobileAppNotificationModel
 {
-    public string Environments { get; set; }
 }

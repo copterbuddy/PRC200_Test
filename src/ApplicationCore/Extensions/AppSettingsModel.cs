@@ -4,8 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Infrastructure;
-
-public interface IExportMobileAppNotiRepository
+namespace ApplicationCore.Extensions;
+public class AppSettingsModel
 {
+    public string Environments { get; set; }
 }

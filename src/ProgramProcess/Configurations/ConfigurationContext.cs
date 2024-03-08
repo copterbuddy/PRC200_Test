@@ -13,4 +13,5 @@ public class ConfigurationContext
     public string Environments => _configuration.GetValue<string>(nameof(Environments));
     public bool IsDevelopment => (Environments ?? "Development") == "Development";
     public string AI2ISConnectionString => _configuration.GetValue<string>(nameof(AI2ISConnectionString));
+    public string ServiceId => _configuration.GetValue<string>(nameof(ServiceId));
 }
